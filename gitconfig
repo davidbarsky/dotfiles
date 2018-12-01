@@ -1,0 +1,37 @@
+[user]
+	email = dbarsky@amazon.com
+	name = David Barsky
+[color]
+	ui = auto
+[core]
+	pager = less -FMRiX
+	excludesfile = /Users/dbarsky/.gitignore_global
+[push]
+	default = simple
+[alias]
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)%an <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+	s = "status"
+	p = "push"
+	l = "log"
+	glog = log --oneline --graph --date-order --decorate --all --pretty=format:'%C(yellow)%h %C(auto)%d %Creset%s %Cgreen%aN'
+[merge]
+	tool = vscode
+[mergetool "tower"]
+	cmd = code --wait $MERGED
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[diff]
+	tool = vscode
+[difftool "tower"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool]
+	keepBackup = false
